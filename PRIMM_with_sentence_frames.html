@@ -17,6 +17,14 @@
       border: 1px solid #ddd;
       padding: 5px;
     }
+    .container2{
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      border: 1px solid #ddd;
+      padding: 5px;
+      justify-content: space-around
+    }
     .section {
       flex: 1 1 30%;
       margin: 10px;
@@ -76,10 +84,19 @@ function addText(choice) {
     textArea.value = sentenceStarter;
   }
 }
+  
+  document.getElementById("homeButton").addEventListener("click", function() {
+    if (confirm("Are you sure you want to leave? Your work won't be saved if you leave this page.")) {
+      window.location.href = "index.html"; // Replace with your actual index.html path
+    }
+  });
 </script>
 
 <body>
+<div class="container2">
   <h1>PRIMM Graphic Organizer</h1>
+  <button id="homeButton">Home</button>
+</class>
   <div class="container">
     <div class="section">
       <h2>Predict (P)</h2>
