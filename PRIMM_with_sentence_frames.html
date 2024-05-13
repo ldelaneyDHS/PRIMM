@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--This code was made with assistance from the AI Gemeni-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRIMM Graphic Organizer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      border: 1px solid #ddd;
+      padding: 5px;
+    }
+    .section {
+      flex: 1 1 30%;
+      margin: 10px;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .section h2 {
+      margin-top: 0;
+    }
+    .label {
+      font-weight: bold;
+    }
+    .text-area {
+      width: 100%;
+      height: 100px;
+      resize: vertical;
+    }
+  </style>
+</head>
+<script>
+function addText(choice) {
+  // Get the text area element based on choice
+  var textArea = document.getElementById("predict");
+  if (choice === 2) {
+    textArea = document.getElementById("run");
+  }
+  else if (choice === 3){
+    textArea = document.getElementById("investigate");
+  }
+  else if (choice === 4){
+    textArea = document.getElementById("modify");
+  }
+  else if (choice === 5){
+    textArea = document.getElementById("make");
+  }
+
+  // Add the sentence to the text area (assuming it's empty)
+  if (textArea.value === "") {
+    var sentenceStarter;
+    if (choice === 1) {
+      sentenceStarter = "I think this program will ________.";
+    } else if (choice === 2) {
+      sentenceStarter = "The output of this program is _________.";
+    } else if (choice === 3) {
+      sentenceStarter = "One part of this code is ____________, which does ______.";
+    } else if (choice === 4) {
+      sentenceStarter = "I made a change in the part where __________. The result of making that change was _______.";
+    } else if (choice === 5) {
+      sentenceStarter = "The goal of this assignment is to make the code ___________. I changed ________. My code now does ___________.";
+    }
+    else {
+      // Handle invalid choices (optional)
+      console.error("Invalid choice provided for addText function");
+      return;
+    }
+    textArea.value = sentenceStarter;
+  }
+}
+</script>
+
+<body>
+  <h1>PRIMM Graphic Organizer</h1>
+  <div class="container">
+    <div class="section">
+      <h2>Predict (P)</h2>
+      <p class="label">What do you think the program does?</p>
+      <textarea class="text-area" id="predict"></textarea>
+      <button onclick="addText(1)">Help me start this sentence </button>
+    </div>
+    <div class="section">
+      <h2>Run (R)</h2>
+      <p class="label">Run the program and observe its behavior.</p>
+      <p>What is the program's output?</p>
+      <textarea class="text-area" id="run"></textarea>
+      <button onclick="addText(2)">Help me start this sentence </button>
+    </div>
+    <div class="section">
+      <h2>Investigate (I)</h2>
+      <p class="label">How does the program work?</p>
+      <p>Identify key concepts and structures used in the code.</p>
+      <textarea class="text-area" id="investigate"></textarea>
+      <button onclick="addText(3)">Help me start this sentence </button>
+    </div>
+    <div class="section">
+      <h2>Modify (M)</h2>
+      <p class="label">Make a small change to the program and observe the results.</p>
+      <p>What did you change? What was the result of making that change? </p>
+      <textarea class="text-area" id="modify"></textarea>
+<button onclick="addText(4)">Help me start this sentence </button>
+    </div>
+    <div class="section">
+      <h2>Make (M)</h2>
+      <p class="label">Make a purposeful change to the program to meet the assignment goal.</p>
+      <textarea class="text-area" id="make"></textarea>
+<button onclick="addText(5)">Help me start this sentence </button>
+    </div>
+<button onclick="window.print()">Print Worksheet</button>
+  </div>
+
+</body>
+</html>
